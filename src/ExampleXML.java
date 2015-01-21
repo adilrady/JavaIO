@@ -23,7 +23,7 @@ public class ExampleXML {
 //        xmlWriter.write(document);
         
         ReadIO xmlReader = new XMLReader("C:/Users/user/Desktop/personnes.xml");
-        WriteIO xmlWriter = new XMLWriter("C:/Users/user/Desktop/personnes_modified.xml");
+        WriteIO xmlWriter = new XMLWriter("C:/Users/user/Desktop/personnes.xml");
         
         ProcessIO processIO = new ProcessIO(xmlReader, xmlWriter);
         processIO.readModifyWriteXML();

@@ -10,18 +10,16 @@ public class XMLWriter implements WriteIO{
 
     private java.io.FileWriter fileWriter;
     private XMLOutputter xmlOutputter;
+    private String filePath;
     
     
     public XMLWriter(String filePath) {
-        try {
-            fileWriter = new java.io.FileWriter(filePath);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        this.filePath=filePath;
     }
     
     @Override
     public void open() throws IOException {
+        fileWriter = new java.io.FileWriter(filePath);
         xmlOutputter = new XMLOutputter(); 
         
     }

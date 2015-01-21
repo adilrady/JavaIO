@@ -40,12 +40,14 @@ public class ProcessIO {
     
     public void readModifyWriteXML() throws IOException{
         reader.open();
-        writer.open();
         Document document = (Document) reader.readLine();
         Element rootNode = document.getRootElement();
         Element nom = rootNode.getChild("etudiant").getChild("nom");
         nom.setName("prenom");
+        
+        writer.open();
         writer.write(document);
+        
         reader.close();
         writer.close();
     }
