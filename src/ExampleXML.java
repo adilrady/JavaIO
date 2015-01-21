@@ -21,12 +21,19 @@ public class ExampleXML {
 //        XMLWriter xmlWriter = new XMLWriter("C:/Users/user/Desktop/personnes.xml");
 //        xmlWriter.open();
 //        xmlWriter.write(document);
+//        -----------------------------
+//        ReadIO xmlReader = new XMLReader("C:/Users/user/Desktop/personnes.xml");
+//        WriteIO xmlWriter = new XMLWriter("C:/Users/user/Desktop/personnes.xml");
+//        
+//        ProcessIO processIO = new ProcessIO(xmlReader, xmlWriter);
+//        processIO.readModifyWriteXML();
+//        -----------------------------
+      ReadIO xmlReader = new PersonReader("C:/Users/user/Desktop/personnesint.csv");
+      WriteIO xmlWriter = new XMLWriter("C:/Users/user/Desktop/convertedFromCSV.xml");
+      
+      ProcessIO processIO = new ProcessIO(xmlReader, xmlWriter);
+      processIO.CSVToXML();
         
-        ReadIO xmlReader = new XMLReader("C:/Users/user/Desktop/personnes.xml");
-        WriteIO xmlWriter = new XMLWriter("C:/Users/user/Desktop/personnes.xml");
-        
-        ProcessIO processIO = new ProcessIO(xmlReader, xmlWriter);
-        processIO.readModifyWriteXML();
         
     }
 }

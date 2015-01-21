@@ -19,7 +19,7 @@ public class PersonWriter implements WriteIO{
     @Override
     public void write(Object personToWrite) throws IOException {
         
-        writer.write(((MyPerson) personToWrite).toString());
+        writer.write(((Person) personToWrite).toString());
         writer.newLine();
     }
 

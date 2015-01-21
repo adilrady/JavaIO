@@ -19,7 +19,7 @@ public class PersonReader implements ReadIO{
     
 
     @Override
-    public MyPerson readLine() throws IOException {
+    public Person readLine() throws IOException {
         String line = reader.readLine();
         if(line == null)
             return null;

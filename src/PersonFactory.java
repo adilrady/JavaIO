@@ -9,17 +9,23 @@ import java.util.Locale;
 
 public class PersonFactory {
 
-    public static MyPerson createPerson(String personDetails){
+    public static Person createPerson(String personDetails){
+        int personId = getPersonId(personDetails);
         String personFirstName = getPersonFirstName(personDetails);
         String personLastName = getPersonLastName(personDetails);
         Date personBirthDate = getPersonBithDate(personDetails);
         
-        return new MyPerson(personFirstName, personLastName, personBirthDate);
+        return new Person(personId, personFirstName, personLastName, personBirthDate);
+    }
+
+    private static int getPersonId(String personDetails) {
+        
+        return Integer.parseInt(personDetails.split(";")[0]);
     }
 
     private static Date getPersonBithDate(String personDetails) {
-        String dateAsString = personDetails.split(",")[2];
-        DateFormat format = new SimpleDateFormat("d-M-yyyy", Locale.ENGLISH);
+        String dateAsString = personDetails.split(";")[3];
+        DateFormat format = new SimpleDateFormat("d/M/yyyy", Locale.ENGLISH);
         Date birthDate = null;
         try {
             birthDate = format.parse(dateAsString);
@@ -31,11 +37,11 @@ public class PersonFactory {
     }
 
     private static String getPersonLastName(String personDetails) {
-        return personDetails.split(",")[1];
+        return personDetails.split(";")[2];
     }
 
     private static String getPersonFirstName(String personDetails) {
-        return personDetails.split(",")[0];
+        return personDetails.split(";")[1];
     }
     
     
