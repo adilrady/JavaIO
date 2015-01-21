@@ -6,22 +6,27 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class FileReader implements ReadIO {
+
+public class PersonReader implements ReadIO{
 
     private File file;
     private BufferedReader reader;
+    private PersonFactory personFactory;
 
-    public FileReader(String filePath) {
+    public PersonReader(String filePath) {
         this.file = new File(filePath);
     }
+    
 
     @Override
-    public String readLine() throws IOException {
-        String line = null;
-        line = reader.readLine();
-        return line;
+    public Person readLine() throws IOException {
+        String line = reader.readLine();
+        if(line == null)
+            return null;
+        
+        return personFactory.createPerson(line);
     }
-
+    
     @Override
     public void open() throws IOException {
         reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
